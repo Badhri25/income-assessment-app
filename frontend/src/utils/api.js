@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: '/api' });
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || '/api'
+});
 
 export const getCases = (params) => API.get('/cases', { params });
 export const getCase = (id) => API.get(`/cases/${id}`);
